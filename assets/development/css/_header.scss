@@ -3,26 +3,24 @@ header {
 	padding: 50px 20px 0;
 
 	h1 {
+		@include span-columns(4);
 		margin: 0; 
 		text-transform: uppercase;
 	}
 
-	.intro {
-		@include light-heading-font;
-		color: $heading-colour;
-		font-size: em(36);
-		margin: 0; 
-	}
-
-	.logo a {
-		color: $grey;
-		display: block;
-		height: 0px;
-		width: 0px;
-	}
-
-	header nav {
+	nav {
+		@include shift(2);
+		@include span-columns(6);
 		padding-top: 20px;
+		
+		li {
+			@include inline-block;
+			margin-left: 20px;
+			
+			&:first-child {
+				margin-left: 0px;
+			}
+		}
 	}
 
 }

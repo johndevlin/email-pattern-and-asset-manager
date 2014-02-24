@@ -11,7 +11,11 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'assets/development/js/libs/*',
+					'assets/development/js/libs/jquery-1.9.1.min.js',
+					'assets/development/js/libs/handlebars-1.1.2.js',
+					'assets/development/js/libs/moment.min.js',
+					'assets/development/js/libs/showdown.js',
+					'assets/development/js/libs/ember-1.4.0.js',
 					'assets/development/js/scripts.js'
 				],
 				dest: 'assets/production/js/production.js',
@@ -105,7 +109,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-htmlhint');
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'watch', 'sass', 'htmlhint']);
+	grunt.registerTask('default', ['concat', 'uglify', 'watch', 'sass']);
 
 };
 

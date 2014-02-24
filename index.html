@@ -28,101 +28,98 @@
 
 <body>
 	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-
-	<header>
-		<div class="container">
-
-			<h1>
-				Trigger
-			</h1>
-			
-			<p class="intro">
-				What about ye world.
-			</p>
-			
-		</div>
-	</header>
 	
-	<div role="main" class="main-content">
-		<div class="container">
-			
-			<article>
-				
-				<h2> 
-					Article
-				</h2>
-				
-				<p>
-					Lorem ipsum dolor sit amet, <a href="#">consectetuer adipiscing elit</a>. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-				</p>
-				
-				<h3>
-					Heading
-				</h3>
+	<script type="text/x-handlebars">
 
-				<p>
-					Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-				</p>
+		<header>
+			<div class="container">
+
+				<h1>
+					<a href="#">Email manager</a>
+				</h1>
 				
-				<ul>
-					<li>
-						Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
-					</li>
-						
-					<li>
-						Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
-					</li>
-						
-					<li>
-						Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-					</li>
-				</ul>
+				<nav>
 				
-				<p class="clearfix">
-					<a class="button return-false inline" href="#">Active Button</a>
-				
-					<a class="button return-false inactive inline" href="#">Inactive Button</a>
-				</p>
-				
-			</article>
-			
-			<aside>
-				
-				<h2>
-					Sidebar
-				</h2>
-				
-				<p>
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-				</p>
-				
-				<form>
+					<ul>
+						<li>
+							{{#link-to 'campaigns'}} Campaigns {{/link-to}}
+						</li>
+						<li>
+							{{#link-to 'assets'}} Assets {{/link-to}}
+						</li>
+					</ul>
 					
-					<input type="text" name="test-input" placeholder="This is a wee input" />
-					
-					<textarea name="text-textarea" placeholder="And this is a wee textarea"></textarea>
-					
-					<input type="submit" value="Submit button" />
-					
-				</form>
+				</nav>
 				
-			</aside>
-			
-		</div>
-	</div>
+			</div>
+		</header>
 		
-	<footer>
-		<div class="container">
-			
-			<p>
-				&copy; <span class="current-year">2014 &dash; present</span>
-			</p>
-			
+		<div role="main" class="main-content">
+			<div class="container">
+				
+				{{outlet}}
+				
+			</div>
 		</div>
-	</footer>
+		
+		<footer>
+			<div class="container">
+				
+				<p>
+					&copy; <span class="current-year">2014 &dash; present</span>
+				</p>
+				
+			</div>
+		</footer>
+
+	</script>
+	
+	
+	<!-- Home -->
+	<script type="text/x-handlebars" id="index">
+
+		<h1>
+			Home
+		</h1>
+
+		<p>
+			Home page content.
+		</p>
+
+	</script>
+	
+	
+	<!-- Campaigns -->
+	<script type="text/x-handlebars" id="campaigns">
+
+		<h1>
+			Campaigns
+		</h1>
+
+		<p>
+			This will output a list of ICON campaigns.
+		</p>
+
+	</script>
+	
+	
+	<!-- Assets -->
+	<script type="text/x-handlebars" id="assets">
+
+		<h1>
+			Assets
+		</h1>
+
+		<p>
+			This will output a list of ICON email assets.
+		</p>
+
+	</script>
 
 	<script src="assets/production/js/production.js"></script>
+	
 	<script src="assets/development/js/app.js"></script>
+	<script src="assets/development/js/router.js"></script>
 	
 </body>
 </html>

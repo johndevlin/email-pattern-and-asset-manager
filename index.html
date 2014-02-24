@@ -12,7 +12,7 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 
-	<title> Trigger - Home </title>
+	<title> ICON Email Manager </title>
 
 	<link rel="shortcut icon" type="image/ico" href="favicon.ico"> 
 
@@ -78,9 +78,9 @@
 	<!-- Home -->
 	<script type="text/x-handlebars" id="index">
 
-		<h1>
+		<h2>
 			Home
-		</h1>
+		</h2>
 
 		<p>
 			Home page content.
@@ -92,13 +92,106 @@
 	<!-- Campaigns -->
 	<script type="text/x-handlebars" id="campaigns">
 
-		<h1>
+		<h2>
 			Campaigns
-		</h1>
+		</h2>
+		
+		<ul class="campaign-list">
+			{{#each model}}
+			<li>
+				<h3>
+					{{#link-to 'campaign' this}}
+						{{title}}, {{date}}
+					{{/link-to}}
+				</h3>
+				
+				<ul class="links">
+					<li>
+						View HTML on Github
+					</li>
+					<li>
+						View PSD
+					</li>
+				</ul>
+				
+				<p class="button">
+					{{#link-to 'campaign' this}}View campaign{{/link-to}}
+				</p>
+				
+			</li>
+			{{/each}}
+		</ul>
+		
+		<hr />
+		
+		{{#if isAdding}}
+			{{partial 'campaigns/add'}}
+			<button {{action 'doneAdding'}}>Add</button>
+		{{else}}
+			<button {{action 'add'}}>Add a new campaign</button>
+		{{/if}}
 
-		<p>
-			This will output a list of ICON campaigns.
-		</p>
+	</script>
+	
+	
+	<!-- Single Campaign -->
+	<script type="text/x-handlebars" id="campaign">
+		
+		<section class="campaign">
+		
+			<h3>
+				{{#link-to 'campaign' this}}
+					{{title}}, {{date}}
+				{{/link-to}}
+			</h3>
+			
+			<figure>
+			
+				<img {{bind-attr src="screenshot" alt="title"}} />
+				
+			</figure>
+			
+			<ul class="links">
+				<li>
+					View HTML on Github
+				</li>
+				<li>
+					View PSD
+				</li>
+			</ul>
+			
+			<p>
+				<a class="button" href="/#/campaigns/">Back</a>
+			</p>
+				
+			{{#if isEditing}}
+				{{partial 'campaign/edit'}}
+				<button {{action 'doneEditing'}}>Done</button>
+			{{else}}
+				<button {{action 'edit'}}>Edit</button>
+			{{/if}}
+			
+		</section>
+
+	</script>
+	
+	
+	<!-- Edit Campaign -->
+	<script type="text/x-handlebars" id="campaign/_edit">
+
+		<p>Title: {{input type="text" value=title}}</p>
+		<p>Date: {{input type="text" value=date}}</p>
+		<p>Screenshot: {{input type="text" value=screenshot}}</p>
+
+	</script>
+	
+	
+	<!-- Add a Campaign -->
+	<script type="text/x-handlebars" id="campaigns/_add">
+
+		<p>Title: {{input type="text" value=title}}</p>
+		<p>Date: {{input type="text" value=date}}</p>
+		<p>Screenshot: {{input type="text" value=screenshot}}</p>
 
 	</script>
 	
@@ -106,9 +199,9 @@
 	<!-- Assets -->
 	<script type="text/x-handlebars" id="assets">
 
-		<h1>
+		<h2>
 			Assets
-		</h1>
+		</h2>
 
 		<p>
 			This will output a list of ICON email assets.
@@ -116,10 +209,11 @@
 
 	</script>
 
+
 	<script src="assets/production/js/production.js"></script>
-	
 	<script src="assets/development/js/app.js"></script>
 	<script src="assets/development/js/router.js"></script>
+	<script src="assets/development/js/data.js"></script>
 	
 </body>
 </html>

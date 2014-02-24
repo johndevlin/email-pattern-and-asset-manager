@@ -16,6 +16,7 @@ module.exports = function(grunt) {
 					'assets/development/js/libs/moment.min.js',
 					'assets/development/js/libs/showdown.js',
 					'assets/development/js/libs/ember-1.4.0.js',
+					'assets/development/js/libs/ember-data.js',
 					'assets/development/js/scripts.js'
 				],
 				dest: 'assets/production/js/production.js',

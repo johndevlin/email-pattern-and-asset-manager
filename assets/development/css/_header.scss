@@ -13,12 +13,29 @@ header {
 		@include span-columns(6);
 		padding-top: 20px;
 		
+		ul {
+			float: right;
+		}
+		
 		li {
 			@include inline-block;
 			margin-left: 20px;
 			
 			&:first-child {
 				margin-left: 0px;
+			}
+			
+			a {
+				border-bottom: 2px solid transparent;
+				padding-bottom: 3px;
+				
+				&:hover {
+					border-bottom: 2px solid $base-colour;
+				}
+			}
+			
+			a.active {
+				border-bottom: 2px solid $base-colour;
 			}
 		}
 	}
